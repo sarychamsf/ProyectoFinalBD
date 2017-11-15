@@ -37,7 +37,14 @@ public class MensajesReporte extends HttpServlet {
             ArrayList<Mensaje> mensajes=new ArrayList<>();
             ArrayList<Integer> ya=new ArrayList<>();
             ArrayList<Reporte> r=new ArrayList<>();
+            ArrayList<Integer> ids=new ArrayList<>();
             mensajes=m.getAllMensaje();
+            for(Integer i:ids){
+                for(Mensaje men :mensajes){
+                    
+                }
+            }
+            
             for(Mensaje men :mensajes){
                 int idU1= men.getIdU1(),enviados=0,recibidos=0;
                 String nombre="";

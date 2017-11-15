@@ -19,11 +19,12 @@ public class MensajeDAO {
     }
 
     public void addMensaje(Mensaje m) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("insert into mensaje(idU1,idU2,Asunto,Texto) values (?,?,?,?)");
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into mensaje(idU1,idU2,idC,Asunto,Texto) values (?,?,?,?,?)");
         preparedStatement.setInt(1, m.getIdU1());
         preparedStatement.setInt(2, m.getIdU2());
-        preparedStatement.setString(3, m.getAsunto());
-        preparedStatement.setString(4, m.getTexto());
+        preparedStatement.setInt(3, m.getIdC());
+        preparedStatement.setString(4, m.getAsunto());
+        preparedStatement.setString(5, m.getTexto());
         preparedStatement.executeUpdate();
     }
 
@@ -52,6 +53,7 @@ public class MensajeDAO {
             Mensaje m = new Mensaje();
             m.setIdU1(rs.getInt("idU1"));
             m.setIdU2(rs.getInt("idU2"));
+            m.setIdC(rs.getInt("idC"));
             m.setAsunto(rs.getString("Asunto"));
             m.setTexto(rs.getString("Texto"));
             mensajes.add(m);
@@ -66,6 +68,7 @@ public class MensajeDAO {
             Mensaje m = new Mensaje();
             m.setIdU1(rs.getInt("idU1"));
             m.setIdU2(rs.getInt("idU2"));
+            m.setIdC(rs.getInt("idC"));
             m.setAsunto(rs.getString("Asunto"));
             m.setTexto(rs.getString("Texto"));
             return m;

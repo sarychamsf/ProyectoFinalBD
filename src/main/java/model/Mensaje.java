@@ -12,15 +12,17 @@ package model;
 public class Mensaje {
     private int idU1;
     private int idU2;
+    private int idC;
     private String asunto;
     private String texto;
 
     public Mensaje() {
     }
 
-    public Mensaje(int idU1, int idU2, String asunto, String texto) {
+    public Mensaje(int idU1, int idU2, int idC, String asunto, String texto) {
         this.idU1 = idU1;
         this.idU2 = idU2;
+        this.idC = idC;
         this.asunto = asunto;
         this.texto = texto;
     }
@@ -41,6 +43,14 @@ public class Mensaje {
         this.idU2 = idU2;
     }
 
+    public int getIdC() {
+        return idC;
+    }
+
+    public void setIdC(int idC) {
+        this.idC = idC;
+    }
+
     public String getAsunto() {
         return asunto;
     }
@@ -56,5 +66,6 @@ public class Mensaje {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
     
 }

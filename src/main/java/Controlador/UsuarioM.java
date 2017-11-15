@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.TrabajadorDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -21,7 +22,12 @@ public class UsuarioM extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
         int idT = Integer.parseInt(request.getParameter("trabajador"));
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(UsuarioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (usuario.equals("root") && password.equals("root")) {
             try {
                 t.deleteTrabajador(idT);
@@ -52,7 +58,12 @@ public class UsuarioM extends HttpServlet {
         String cargo = request.getParameter("cargo");
         String pass = request.getParameter("password");
         int idS = Integer.parseInt(request.getParameter("supervisor"));
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(UsuarioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Trabajador trabajadorM = new Trabajador();
         try {
             trabajadorM = t.getTrabajadorById(idU);

@@ -3,6 +3,7 @@ package Controlador;
 import dao.MensajeDAO;
 import dao.TrabajadorDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -21,7 +22,12 @@ public class MensajeC extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(MensajeC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Trabajador> trabajadores = new ArrayList<>();
         try {
             trabajadores = t.getAllTrabajadores();
@@ -51,7 +57,12 @@ public class MensajeC extends HttpServlet {
         String Asunto = request.getParameter("asunto");
         String Texto = request.getParameter("texto");
         if (idU1 == idU2) {
-            TrabajadorDAO t = new TrabajadorDAO();
+            TrabajadorDAO t = null;
+            try {
+                t = new TrabajadorDAO();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(MensajeC.class.getName()).log(Level.SEVERE, null, ex);
+            }
             ArrayList<Trabajador> trabajadores = new ArrayList<>();
             try {
                 trabajadores = t.getAllTrabajadores();
@@ -63,7 +74,12 @@ public class MensajeC extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/MensajeC.jsp");
             rd.forward(request, response);
         } else {
-            MensajeDAO mdao = new MensajeDAO();
+            MensajeDAO mdao = null;
+            try {
+                mdao = new MensajeDAO();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(MensajeC.class.getName()).log(Level.SEVERE, null, ex);
+            }
             Mensaje m = new Mensaje(idU1, idU2, Asunto, Texto);
             try {
                 mdao.addMensaje(m);

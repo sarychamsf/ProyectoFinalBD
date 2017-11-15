@@ -4,6 +4,7 @@ import dao.HorarioDAO;
 import dao.TerminadoDAO;
 import dao.TrabajadorDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -23,11 +24,26 @@ public class TerminadoC extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Trabajador> usuarios = new ArrayList<>();
-        HorarioDAO h = new HorarioDAO();
+        HorarioDAO h = null;
+        try {
+            h = new HorarioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Horario> horarios = new ArrayList();
-        TerminadoDAO ter = new TerminadoDAO();
+        TerminadoDAO ter = null;
+        try {
+            ter = new TerminadoDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Terminado> terminados = new ArrayList();
         try {
             horarios = h.getAllHorarios();
@@ -61,7 +77,12 @@ public class TerminadoC extends HttpServlet {
         int idH = Integer.parseInt(request.getParameter("idH"));
         String fechaTerminado = request.getParameter("fechaT");
         int supervisor = Integer.parseInt(request.getParameter("supervisor"));
-        TerminadoDAO ter = new TerminadoDAO();
+        TerminadoDAO ter = null;
+        try {
+            ter = new TerminadoDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Terminado t = new Terminado(idH, fechaTerminado, "rs", supervisor, 0);
         try {
             ter.addTerminado(t);

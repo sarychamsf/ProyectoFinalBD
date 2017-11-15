@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.MensajeDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,12 @@ public class MensajeM extends HttpServlet {
             throws ServletException, IOException {
         int idU1 = Integer.parseInt(request.getParameter("idU1"));
         int idU2 = Integer.parseInt(request.getParameter("idU2"));
-        MensajeDAO m = new MensajeDAO();
+        MensajeDAO m = null;
+        try {
+            m = new MensajeDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(MensajeM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             m.deleteMensaje(idU1, idU2);
         } catch (SQLException ex) {
@@ -35,7 +41,12 @@ public class MensajeM extends HttpServlet {
         int idU2 = Integer.parseInt(request.getParameter("idU2"));
         String asunto = request.getParameter("asunto");
         String texto = request.getParameter("texto");
-        MensajeDAO m = new MensajeDAO();
+        MensajeDAO m = null;
+        try {
+            m = new MensajeDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(MensajeM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Mensaje mensajeU = new Mensaje();
         try {
             mensajeU = m.getAllMensajesByIds(idU1, idU2);

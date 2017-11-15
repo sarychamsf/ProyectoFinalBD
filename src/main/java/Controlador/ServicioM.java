@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.ServicioDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -21,7 +22,12 @@ public class ServicioM extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String password = request.getParameter("password");
         int idS = Integer.parseInt(request.getParameter("servicio"));
-        ServicioDAO s = new ServicioDAO();
+        ServicioDAO s = null;
+        try {
+            s = new ServicioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ServicioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (usuario.equals("root") && password.equals("root")) {
             try {
                 s.deleteServicio(idS);
@@ -48,7 +54,12 @@ public class ServicioM extends HttpServlet {
             throws ServletException, IOException {
         int idS = Integer.parseInt(request.getParameter("updated"));
         String nombre = request.getParameter("servicio");
-        ServicioDAO s = new ServicioDAO();
+        ServicioDAO s = null;
+        try {
+            s = new ServicioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ServicioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Servicio servicioM = new Servicio();
         try {
             servicioM = s.getServicioById(idS);

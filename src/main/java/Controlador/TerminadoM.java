@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.TerminadoDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +18,12 @@ public class TerminadoM extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idT = Integer.parseInt(request.getParameter("idT"));
-        TerminadoDAO ter = new TerminadoDAO();
+        TerminadoDAO ter = null;
+        try {
+            ter = new TerminadoDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             ter.deleteTerminado(idT);
         } catch (SQLException ex) {
@@ -31,7 +37,12 @@ public class TerminadoM extends HttpServlet {
             throws ServletException, IOException {
         int idT = Integer.parseInt(request.getParameter("idT"));
         int supervisor = Integer.parseInt(request.getParameter("supervisor"));
-        TerminadoDAO ter = new TerminadoDAO();
+        TerminadoDAO ter = null;
+        try {
+            ter = new TerminadoDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TerminadoM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Terminado terminado = new Terminado();
         try {
             terminado = ter.getTerminadoById(idT);

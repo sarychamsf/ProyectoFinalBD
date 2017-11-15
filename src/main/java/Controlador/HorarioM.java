@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.HorarioDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +18,12 @@ public class HorarioM extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idH = Integer.parseInt(request.getParameter("idH"));
-        HorarioDAO h = new HorarioDAO();
+        HorarioDAO h = null;
+        try {
+            h = new HorarioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             h.deleteHorario(idH);
         } catch (SQLException ex) {
@@ -36,7 +42,12 @@ public class HorarioM extends HttpServlet {
         String horaFinal = request.getParameter("horaF1") + "" + request.getParameter("horaF2");
 
         String fecha = request.getParameter("fechaD") + "/" + request.getParameter("fechaM") + "/" + request.getParameter("fechaA");
-        HorarioDAO h = new HorarioDAO();
+        HorarioDAO h = null;
+        try {
+            h = new HorarioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Horario horario = new Horario();
         try {
             horario = h.getHorarioById(idH);

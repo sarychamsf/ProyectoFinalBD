@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.TrabajadorDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -19,7 +20,12 @@ public class Usuario extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Trabajador> trabajadores = new ArrayList<>();
         try {
             trabajadores = t.getAllTrabajadores();
@@ -44,7 +50,12 @@ public class Usuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        TrabajadorDAO t = new TrabajadorDAO();
+        TrabajadorDAO t = null;
+        try {
+            t = new TrabajadorDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Trabajador> trabajadores = new ArrayList<>();
         try {
             trabajadores = t.getAllTrabajadores();
@@ -70,7 +81,11 @@ public class Usuario extends HttpServlet {
             trabajador.setNombre(nombre);
             trabajador.setCargo(cargo);
             trabajador.setSupervisor(supervisor);
-            t = new TrabajadorDAO();
+            try {
+                t = new TrabajadorDAO();
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
             try {
                 t.addTrabajador(trabajador);
             } catch (SQLException ex) {

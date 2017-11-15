@@ -2,6 +2,7 @@ package Controlador;
 
 import dao.ServicioDAO;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -19,7 +20,12 @@ public class ServicioC extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        ServicioDAO s = new ServicioDAO();
+        ServicioDAO s = null;
+        try {
+            s = new ServicioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ServicioC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Servicio> servicios = new ArrayList<>();
         try {
             servicios = s.getAllServicios();
@@ -44,7 +50,12 @@ public class ServicioC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServicioDAO s = new ServicioDAO();
+        ServicioDAO s = null;
+        try {
+            s = new ServicioDAO();
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ServicioC.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ArrayList<Servicio> servicios = new ArrayList<>();
         try {
             servicios = s.getAllServicios();

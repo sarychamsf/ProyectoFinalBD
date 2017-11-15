@@ -41,7 +41,8 @@ public class EmpresaC extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/EmpresaD.jsp");
             rd.forward(request, response);
         }
-        response.sendRedirect("/EmpresaC.jsp");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/EmpresaC.jsp");
+        rd.forward(request, response);
     }
 
     @Override

@@ -13,6 +13,10 @@
         <servlet-class>Controlador.MensajesReporte</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Controlador.Login</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>EmpresaC</servlet-name>
         <servlet-class>Controlador.EmpresaC</servlet-class>
     </servlet>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>Usuario</servlet-name>
         <url-pattern>/Usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CategoriaC</servlet-name>

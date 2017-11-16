@@ -68,6 +68,7 @@
                         <%      }
                             }
                         %>
+                    </table>
                 </div>      
                 <br>
                 <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>

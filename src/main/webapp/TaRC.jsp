@@ -1,5 +1,5 @@
 <%@page import="model.Servicio"%>
-<%@page import="model.EmpresaCliente"%>
+<%@page import="util.Trabajillo"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,18 +47,6 @@
                 </div>
                 <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
                     <form align="center" action="TrabajoARealizarC" method="POST" class="tm-contact-form"> 
-                        <label align="center" for="idE">Empresa</label>
-                        <select name="idE" class="form-control form-control-lg">
-                            <%
-                                if (request.getAttribute("empresas") != null) {
-                                    ArrayList<EmpresaCliente> array = (ArrayList<EmpresaCliente>) request.getAttribute("empresas");
-                                    for (EmpresaCliente e : array) {
-                            %>
-                            <option value="<%=e.getNIT()%>"><%=e.getNombreEmpresa()%></option>
-                            <%      }
-                                }
-                            %>
-                        </select>  
                         <br>
                         <label align="center" for="idS">Servicio</label>
                         <select name="idS" class="form-control form-control-lg">
@@ -91,13 +79,42 @@
                         <input type="text" name="detalles" maxlength="50" class="form-control" placeholder="máx. 50"  required/>
                         <br>
                         <br>
+                        <label class="btn btn-primary active">
+                            <input type="checkbox" checked autocomplete="on"> Confirmado
+                        </label>
                         <button type="submit" class="btn tm-bordered-btn pull-xs-center">Agregar</button>
                         <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>
                     </form>  
 
                 </div>                         
 
+                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
+                    <table class="table table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Urgencia</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <%
+                          if (request.getAttribute("trabajos") != null) {
+                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getAttribute("trabajos");
+                                    for (Trabajillo r : array) {
+                        %>
+                        <thead>
+                            <tr>
+                                <th><%=r.getServicio()%></th>
+                                <th><%=r.getUrgencia()%></th>
+                                <th><%=r.getDetalles()%></th>
+                            </tr>
+                        </thead>
+                        <%      }
+                            }
+                        %>
+                    </table>
 
+                </div>      
             </section>
 
 

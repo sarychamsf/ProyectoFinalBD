@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.EmpresaCliente;
 import model.Servicio;
 import model.TrabajoARealizar;
+import util.Trabajillo;
 
 public class TrabajoARealizarC extends HttpServlet {
 
@@ -77,23 +78,43 @@ public class TrabajoARealizarC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idE = Integer.parseInt(request.getParameter("idE"));
-        int idS = Integer.parseInt(request.getParameter("idS"));
-        int urgencia = Integer.parseInt(request.getParameter("urgencia"));
-        String detalles = request.getParameter("detalles");
-        TrabajoARealizarDAO t = null;
-        try {
-            t = new TrabajoARealizarDAO();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
+        if (request.getSession().getAttribute("hola")!=null) {
+            int idS = Integer.parseInt(request.getParameter("idS"));
+            int urgencia = Integer.parseInt(request.getParameter("urgencia"));
+            String detalles = request.getParameter("detalles");
+            try {
+                ServicioDAO s=new ServicioDAO();
+                ArrayList<Servicio> servicios=s.getAllServicios();
+                for(Servicio ser: servicios){
+                    if(ser.getIdServicio()==idS){
+                        Trabajillo traba=new Trabajillo(ser.getNombreS(), urgencia, detalles);
+                        if(request.getSession().getAttribute("trabajosE")==null){
+                           ArrayList<Trabajillo> trabajosE=new ArrayList<>();
+                           trabajosE.add(traba);
+                           request.getSession().setAttribute("trabajosE", trabajosE);
+                           
+                        }else{
+                            ArrayList<Trabajillo> trabajosE=(ArrayList<Trabajillo>) request.getSession().getAttribute("trabajoE");
+                            trabajosE.add(traba);
+                            request.getSession().setAttribute("trabajosE", trabajosE);
+                        }
+                    }
+                }
+                
+                
+                
+                
+                
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+
+        } else {
+            response.sendRedirect("index.jsp");
         }
-        TrabajoARealizar tar = new TrabajoARealizar(0, idE, idS, urgencia, detalles, 0);
-        try {
-            t.addTrabajoARealizar(tar);
-        } catch (SQLException ex) {
-            Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        response.sendRedirect("menu.jsp");
     }
 
 }

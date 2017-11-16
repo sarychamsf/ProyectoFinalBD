@@ -34,7 +34,7 @@ public class ServicioM extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(ServicioM.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         } else {
             ArrayList<Servicio> servicios = new ArrayList<>();
             try {
@@ -74,6 +74,6 @@ public class ServicioM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(ServicioM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 }

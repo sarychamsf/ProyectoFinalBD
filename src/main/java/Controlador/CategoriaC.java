@@ -63,7 +63,7 @@ public class CategoriaC extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(ServicioC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         } else {
             request.setAttribute("categorias", categoria);
             request.setAttribute("Respuesta", "Ese servicio ya esta creado");

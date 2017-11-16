@@ -36,7 +36,7 @@ public class FuncionesM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(MensajeM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class FuncionesM extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(MensajeM.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         } else {
             ServicioDAO s = null;
             try {

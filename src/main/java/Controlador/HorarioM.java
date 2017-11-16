@@ -29,7 +29,7 @@ public class HorarioM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
     @Override
@@ -73,6 +73,6 @@ public class HorarioM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 }

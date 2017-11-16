@@ -89,7 +89,7 @@ public class TerminadoC extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TerminadoC.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
 }

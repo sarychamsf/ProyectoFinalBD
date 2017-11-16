@@ -70,8 +70,8 @@
                         %>
                 </div>      
                 <br>
-                <a class="btn tm-bordered-btn pull-xs-center" href="menu.html" role="button">Volver</a>
-                </secton>
+                <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>
+                </section>
 
 
 

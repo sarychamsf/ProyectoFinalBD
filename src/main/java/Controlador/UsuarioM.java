@@ -34,7 +34,7 @@ public class UsuarioM extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioM.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
 
         } else {
             ArrayList<Trabajador> trabajadores = new ArrayList<>();
@@ -87,6 +87,6 @@ public class UsuarioM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 }

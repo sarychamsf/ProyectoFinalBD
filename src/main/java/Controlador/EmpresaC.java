@@ -83,7 +83,7 @@ public class EmpresaC extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         } else {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/EmpresaC.jsp");
             rd.forward(request, response);

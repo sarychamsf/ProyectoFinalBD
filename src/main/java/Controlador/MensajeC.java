@@ -99,7 +99,7 @@ public class MensajeC extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         }
     }
 

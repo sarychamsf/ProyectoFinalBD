@@ -29,7 +29,7 @@ public class TrabajoARealizarM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TrabajoARealizarM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
     @Override
@@ -61,6 +61,6 @@ public class TrabajoARealizarM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TrabajoARealizarM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 }

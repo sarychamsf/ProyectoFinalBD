@@ -110,7 +110,7 @@ public class HorarioC extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(HorarioC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         } else {
             TrabajadorDAO u = null;
             try {

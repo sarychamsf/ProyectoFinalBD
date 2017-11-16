@@ -29,7 +29,7 @@ public class TerminadoM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TerminadoM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
     @Override
@@ -57,7 +57,7 @@ public class TerminadoM extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TerminadoM.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.html");
+        response.sendRedirect("menu.jsp");
     }
 
 }

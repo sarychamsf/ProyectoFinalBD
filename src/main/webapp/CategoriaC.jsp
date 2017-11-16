@@ -47,7 +47,7 @@
                         <label align="center" for="nombre">Nombre de la categoria</label>
                         <input type="text" name="nombre" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
                         <button type="submit" class="btn tm-bordered-btn pull-xs-center">Agregar</button>
-                        <a class="btn tm-bordered-btn pull-xs-center" href="menu.html" role="button">Volver</a>
+                        <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>
                     </form>  
 
                 </div>                         

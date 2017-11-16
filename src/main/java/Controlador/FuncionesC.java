@@ -111,7 +111,7 @@ public class FuncionesC extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(FuncionesC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("menu.html");
+            response.sendRedirect("menu.jsp");
         }
 
     }

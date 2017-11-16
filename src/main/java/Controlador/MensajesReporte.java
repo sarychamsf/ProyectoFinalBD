@@ -52,7 +52,9 @@ public class MensajesReporte extends HttpServlet {
                         recibidos++;
                     }
                 }
-                r.add(new Reporte(tra.getNombre(), enviados, recibidos));
+                if(enviados!=0 || recibidos!=0){
+                    r.add(new Reporte(tra.getNombre(), enviados, recibidos));
+                }
             }
             request.setAttribute("reporte", r);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/Reporte.jsp");

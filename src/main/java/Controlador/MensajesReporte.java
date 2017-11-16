@@ -34,43 +34,25 @@ public class MensajesReporte extends HttpServlet {
             throws ServletException, IOException {
         try {
             MensajeDAO m= new MensajeDAO();
-            ArrayList<Mensaje> mensajes=new ArrayList<>();
-            ArrayList<Integer> ya=new ArrayList<>();
+            ArrayList<Mensaje> mensajes=m.getAllMensaje();
+            TrabajadorDAO t=new TrabajadorDAO();
+            ArrayList<Trabajador> trabajadores=t.getAllTrabajadores();
             ArrayList<Reporte> r=new ArrayList<>();
-            ArrayList<Integer> ids=new ArrayList<>();
-            mensajes=m.getAllMensaje();
-            for(Integer i:ids){
-                for(Mensaje men :mensajes){
-                    
-                }
-            }
-            
-            for(Mensaje men :mensajes){
-                int idU1= men.getIdU1(),enviados=0,recibidos=0;
-                String nombre="";
-                if(ya.contains(men.getIdU1())){
-                    continue;
-                }else{
-                    ArrayList<Trabajador> trabajadores=new ArrayList<>();
-                    TrabajadorDAO t=new TrabajadorDAO();
-                    trabajadores=t.getAllTrabajadores();
-                    for(Trabajador tra:trabajadores){
-                        if(tra.getIdUsuario()==idU1){
-                            nombre=tra.getNombre();
-                            break;
-                        }
-                    }
-                }
-                for(Mensaje men2:mensajes){
-                    if(idU1==men2.getIdU1()){
+            for(Trabajador tra : trabajadores){
+                int idU=tra.getIdUsuario();
+                int enviados=0;
+                int recibidos=0;
+                for(Mensaje men : mensajes){
+                    if(idU==men.getIdU1()){
                         enviados++;
                     }
-                    if(idU1==men2.getIdU2()){
+                }
+                for(Mensaje men : mensajes){
+                    if(idU==men.getIdU2()){
                         recibidos++;
                     }
                 }
-                r.add(new Reporte(nombre, enviados, recibidos));
-                ya.add(idU1);
+                r.add(new Reporte(tra.getNombre(), enviados, recibidos));
             }
             request.setAttribute("reporte", r);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/Reporte.jsp");

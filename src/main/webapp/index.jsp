@@ -41,6 +41,7 @@
                                 } else {
                                 %>
                                 <br>
+                                <%}%>
                                 <label align="center" for="usuario">Usuario</label>
                                 <input type="text" name="usuario" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
                                 <br>

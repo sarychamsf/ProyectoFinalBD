@@ -34,7 +34,20 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="tm-wrapper-center">
                             <h1 class="tm-section-intro-title">Bienvenido</h1>
-                            <p><a class="tm-btn-white-big" href="menu.jsp" role="button">Empezar</a></p>
+                            <form align="center" action="Login" method="GET" class="tm-contact-form"> 
+                                <%
+                                if (request.getAttribute("respuesta") != null) {
+                                    %><h6 class="tm-2-col-text-description">Usuario o Contrasena invalidos</h6><%
+                                } else {
+                                %>
+                                <br>
+                                <label align="center" for="usuario">Usuario</label>
+                                <input type="text" name="usuario" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
+                                <br>
+                                <label align="center" for="login">Password</label>
+                                <input type="pass" name="pass" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
+                                <button type="submit" class="btn tm-bordered-btn pull-xs-center">Empezar</button>
+                            </form>
                         </div>            
                     </div>
                 </section>    

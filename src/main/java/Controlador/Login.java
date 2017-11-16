@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
             for (EmpresaCliente e : empresas) {
                 if (e.getUsuarioE().equals(usuario) && e.getPasswordE().equals(pass)) {
                     request.getSession().setAttribute("empresa", e);
-                    response.sendRedirect("/menu.jsp");
+                    response.sendRedirect("menu.jsp");
                     return;
                 }
             }

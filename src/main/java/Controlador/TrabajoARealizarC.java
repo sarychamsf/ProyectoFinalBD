@@ -1,6 +1,5 @@
 package Controlador;
 
-import dao.EmpresaClienteDAO;
 import dao.ServicioDAO;
 import dao.TrabajoARealizarDAO;
 import java.io.IOException;
@@ -68,27 +67,42 @@ public class TrabajoARealizarC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idS = Integer.parseInt(request.getParameter("idS"));
-        int urgencia = Integer.parseInt(request.getParameter("urgencia"));
-        String detalles = request.getParameter("detalles");
         try {
+            int idS = Integer.parseInt(request.getParameter("idS"));
+            int urgencia = Integer.parseInt(request.getParameter("urgencia"));
+            String detalles = request.getParameter("detalles");
             ServicioDAO s = new ServicioDAO();
-            ArrayList<Servicio> servicios = s.getAllServicios();
-            for (Servicio ser : servicios) {
-                if (ser.getIdServicio() == idS) {
-                    Trabajillo traba = new Trabajillo(idS, ser.getNombreS(), urgencia, detalles);
-                    if (request.getSession().getAttribute("trabajosE") == null) {
-                        ArrayList<Trabajillo> trabajosE = new ArrayList<>();
-                        trabajosE.add(traba);
-                        request.getSession().setAttribute("trabajosE", trabajosE);
-                    } else {
-                        ArrayList<Trabajillo> trabajosE = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
-                        trabajosE.add(traba);
-                        request.getSession().setAttribute("trabajosE", trabajosE);
+            if (request.getParameter("confirmado") != null) {
+                ArrayList<Trabajillo> trabajosE = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
+                EmpresaCliente e=(EmpresaCliente) request.getSession().getAttribute("empresa");
+                TrabajoARealizarDAO tar=new TrabajoARealizarDAO();
+                for(Trabajillo traba: trabajosE){
+                    TrabajoARealizar t=new TrabajoARealizar(0, e.getNIT(), traba.getIdServicio(), traba.getUrgencia(), traba.getDetalles(), 0);
+                    tar.addTrabajoARealizar(t);
+                }
+                TrabajoARealizar t=new TrabajoARealizar(0, e.getNIT(), idS, urgencia, detalles, 0);
+                tar.addTrabajoARealizar(t);
+                request.getSession().setAttribute("trabajosE", null);
+                response.sendRedirect("menu.jsp");
+            } else {
+                ArrayList<Servicio> servicios = s.getAllServicios();
+                for (Servicio ser : servicios) {
+                    if (ser.getIdServicio() == idS) {
+                        Trabajillo traba = new Trabajillo(idS, ser.getNombreS(), urgencia, detalles);
+                        if (request.getSession().getAttribute("trabajosE") == null) {
+                            ArrayList<Trabajillo> trabajosE = new ArrayList<>();
+                            trabajosE.add(traba);
+                            request.getSession().setAttribute("trabajosE", trabajosE);
+                        } else {
+                            ArrayList<Trabajillo> trabajosE = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
+                            trabajosE.add(traba);
+                            request.getSession().setAttribute("trabajosE", trabajosE);
+                        }
+                        request.setAttribute("servicios", servicios);
+                        request.setAttribute("DSFOIJ", "asdfqwef");
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/TaRC.jsp");
+                        rd.forward(request, response);
                     }
-                    request.setAttribute("servicios", servicios);
-                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/TaRC.jsp");
-                    rd.forward(request, response);
                 }
             }
         } catch (URISyntaxException ex) {
@@ -96,7 +110,6 @@ public class TrabajoARealizarC extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
         }
-        response.sendRedirect("menu.jsp");
     }
 
 }

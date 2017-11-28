@@ -99,7 +99,7 @@
                         </thead>
                         <%
                           if (request.getSession().getAttribute("trabajosE") != null) {
-                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getAttribute("trabajosE");
+                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
                                     for (Trabajillo r : array) {
                         %>
                         <thead>

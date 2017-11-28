@@ -10,6 +10,7 @@ package util;
  * @author LabingXEON
  */
 public class Trabajillo {
+    private int idServicio;
     private String servicio;
     private int urgencia;
     private String detalles;
@@ -17,11 +18,22 @@ public class Trabajillo {
     public Trabajillo() {
     }
 
-    public Trabajillo(String servicio, int urgencia, String detalles) {
+    public Trabajillo(int idServicio,String servicio, int urgencia, String detalles) {
+        this.idServicio=idServicio;
         this.servicio = servicio;
         this.urgencia = urgencia;
         this.detalles = detalles;
     }
+
+    public int getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
+    }
+    
+    
 
     public String getServicio() {
         return servicio;

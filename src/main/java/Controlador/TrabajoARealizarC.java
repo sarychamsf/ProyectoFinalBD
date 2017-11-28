@@ -25,7 +25,6 @@ public class TrabajoARealizarC extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-
         if (action.equals("create")) {
             ServicioDAO s = null;
             try {
@@ -34,20 +33,11 @@ public class TrabajoARealizarC extends HttpServlet {
                 Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
             }
             ArrayList<Servicio> servicios = new ArrayList<>();
-            EmpresaClienteDAO e = null;
-            try {
-                e = new EmpresaClienteDAO();
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ArrayList<EmpresaCliente> empresas = new ArrayList<>();
             try {
                 servicios = s.getAllServicios();
-                empresas = e.getAllEmpresas();
             } catch (SQLException ex) {
                 Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            request.setAttribute("empresas", empresas);
             request.setAttribute("servicios", servicios);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/TaRC.jsp");
             rd.forward(request, response);
@@ -78,43 +68,35 @@ public class TrabajoARealizarC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getSession().getAttribute("hola")!=null) {
-            int idS = Integer.parseInt(request.getParameter("idS"));
-            int urgencia = Integer.parseInt(request.getParameter("urgencia"));
-            String detalles = request.getParameter("detalles");
-            try {
-                ServicioDAO s=new ServicioDAO();
-                ArrayList<Servicio> servicios=s.getAllServicios();
-                for(Servicio ser: servicios){
-                    if(ser.getIdServicio()==idS){
-                        Trabajillo traba=new Trabajillo(ser.getNombreS(), urgencia, detalles);
-                        if(request.getSession().getAttribute("trabajosE")==null){
-                           ArrayList<Trabajillo> trabajosE=new ArrayList<>();
-                           trabajosE.add(traba);
-                           request.getSession().setAttribute("trabajosE", trabajosE);
-                           
-                        }else{
-                            ArrayList<Trabajillo> trabajosE=(ArrayList<Trabajillo>) request.getSession().getAttribute("trabajoE");
-                            trabajosE.add(traba);
-                            request.getSession().setAttribute("trabajosE", trabajosE);
-                        }
+        int idS = Integer.parseInt(request.getParameter("idS"));
+        int urgencia = Integer.parseInt(request.getParameter("urgencia"));
+        String detalles = request.getParameter("detalles");
+        try {
+            ServicioDAO s = new ServicioDAO();
+            ArrayList<Servicio> servicios = s.getAllServicios();
+            for (Servicio ser : servicios) {
+                if (ser.getIdServicio() == idS) {
+                    Trabajillo traba = new Trabajillo(idS, ser.getNombreS(), urgencia, detalles);
+                    if (request.getSession().getAttribute("trabajosE") == null) {
+                        ArrayList<Trabajillo> trabajosE = new ArrayList<>();
+                        trabajosE.add(traba);
+                        request.getSession().setAttribute("trabajosE", trabajosE);
+                    } else {
+                        ArrayList<Trabajillo> trabajosE = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
+                        trabajosE.add(traba);
+                        request.getSession().setAttribute("trabajosE", trabajosE);
                     }
+                    request.setAttribute("servicios", servicios);
+                    RequestDispatcher rd = getServletContext().getRequestDispatcher("/TaRC.jsp");
+                    rd.forward(request, response);
                 }
-                
-                
-                
-                
-                
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-
-        } else {
-            response.sendRedirect("index.jsp");
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TrabajoARealizarC.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.sendRedirect("menu.jsp");
     }
 
 }

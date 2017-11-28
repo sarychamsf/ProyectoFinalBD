@@ -80,7 +80,7 @@
                         <br>
                         <br>
                         <label class="btn btn-primary active">
-                            <input type="checkbox" checked autocomplete="on"> Confirmado
+                            <input type="checkbox" checked autocomplete="on" name="confirmado"> Confirmado
                         </label>
                         <button type="submit" class="btn tm-bordered-btn pull-xs-center">Agregar</button>
                         <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>
@@ -98,8 +98,8 @@
                             </tr>
                         </thead>
                         <%
-                          if (request.getAttribute("trabajos") != null) {
-                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getAttribute("trabajos");
+                          if (request.getSession().getAttribute("trabajosE") != null) {
+                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getAttribute("trabajosE");
                                     for (Trabajillo r : array) {
                         %>
                         <thead>

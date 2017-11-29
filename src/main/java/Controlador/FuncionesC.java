@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Funciones;
 import model.Servicio;
 import model.Trabajador;
-
+//ayaya
 public class FuncionesC extends HttpServlet {
 
     @Override

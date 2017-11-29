@@ -56,8 +56,8 @@
                 </thead>
                 <%
                   if (request.getAttribute("reporte") != null) {
-                            ArrayList<ReporteServicio> array = (ArrayList<SReporteServicio>) request.getAttribute("reporte");
-                            for (Reporte r : array) {
+                            ArrayList<ReporteServicio> array = (ArrayList<ReporteServicio>) request.getAttribute("reporte");
+                            for (ReporteServicio r : array) {
                 %>
                 <thead>
                     <tr>

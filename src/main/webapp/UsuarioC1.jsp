@@ -2,14 +2,6 @@
 <%@page import="model.Trabajador"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="model.TrabajosTerminados"%>
-<%
-    HttpSession sesion = request.getSession();
-    Trabajador usuario = (Trabajador)sesion.getAttribute("usuario");
-    if( usuario == null){
-      response.sendRedirect("index.jsp");
-    }else{ 
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -98,4 +90,3 @@
 
     </body>
 </html>
-<%}%>

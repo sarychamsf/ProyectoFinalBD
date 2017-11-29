@@ -39,6 +39,7 @@
                                     <a class="btn btn-primary btn-lg" href="Usuario?action=create" role="button">C</a>
                                     <a class="btn btn-primary btn-lg" href="Usuario?action=update" role="button">U</a>
                                     <a class="btn btn-primary btn-lg" href="Usuario?action=delete" role="button">D</a>
+                                    <a class="btn btn-primary btn-lg" href="Usuario?action=consulta1" role="button">C1</a>
                                 </p>
                             </div>
                             <div class="tm-icon-text-box col-md-4">

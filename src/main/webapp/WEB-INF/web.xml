@@ -73,6 +73,29 @@
         <servlet-class>Controlador.HorarioM</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ProblemaC</servlet-name>
+        <servlet-class>Controlador.ProblemaC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProblemaM</servlet-name>
+        <servlet-class>Controlador.ProblemaM</servlet-class>
+    </servlet>
+    
+    
+    <servlet>
+        <servlet-name>QuejaC</servlet-name>
+        <servlet-class>Controlador.QuejaC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuejaM</servlet-name>
+        <servlet-class>Controlador.QuejaM</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>QuejaZ</servlet-name>
+        <servlet-class>Controlador.QuejaZ</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TerminadoC</servlet-name>
         <servlet-class>Controlador.TerminadoC</servlet-class>
     </servlet>
@@ -151,6 +174,31 @@
     <servlet-mapping>
         <servlet-name>HorarioM</servlet-name>
         <url-pattern>/HorarioM</url-pattern>
+    </servlet-mapping>
+         <servlet-mapping>
+        <servlet-name>ProblemaC</servlet-name>
+        <url-pattern>/ProblemaC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProblemaM</servlet-name>
+        <url-pattern>/ProblemaM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProblemaM</servlet-name>
+        <url-pattern>/ProblemaM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuejaC</servlet-name>
+        <url-pattern>/QuejaC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuejaM</servlet-name>
+        <url-pattern>/QuejaM</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>QuejaZ</servlet-name>
+        <url-pattern>/QuejaZ</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TerminadoC</servlet-name>

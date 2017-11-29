@@ -62,6 +62,7 @@ public class MensajeC extends HttpServlet {
         int idU1 = Integer.parseInt(request.getParameter("idU1"));
         int idU2 = Integer.parseInt(request.getParameter("idU2"));
         int idC= Integer.parseInt(request.getParameter("idC"));
+        int prioridad= Integer.parseInt(request.getParameter("prioridad"));
         String Asunto = request.getParameter("asunto");
         String Texto = request.getParameter("texto");
         if (idU1 == idU2) {
@@ -93,7 +94,7 @@ public class MensajeC extends HttpServlet {
             } catch (URISyntaxException ex) {
                 Logger.getLogger(MensajeC.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Mensaje m = new Mensaje(idU1, idU2,idC, Asunto, Texto);
+            Mensaje m = new Mensaje(idU1, idU2,idC, prioridad, Asunto, Texto);
             try {
                 mdao.addMensaje(m);
             } catch (SQLException ex) {

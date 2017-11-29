@@ -22,7 +22,8 @@ import model.Problema;
 import model.TrabajoARealizar;
 
 /**
- * 
+ * 4.4 4.7
+ *
  * @author Brenda
  */
 public class ProblemaC extends HttpServlet {
@@ -30,56 +31,33 @@ public class ProblemaC extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action.equals("delete")) {
-            ProblemaDAO p = null;
-            try {
-                p = new ProblemaDAO();
-            } catch (URISyntaxException ex) {
-                Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ArrayList<Problema> problemas = new ArrayList();
-            try {
-                problemas = p.getAllProblemas();
-            } catch (SQLException ex) {
-                Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            request.setAttribute("problemas", problemas);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaD.jsp");
-            rd.forward(request, response);
-        }
-
-        TrabajoARealizarDAO t = null;
         try {
-            t = new TrabajoARealizarDAO();
+            String action = request.getParameter("action");
+            TrabajoARealizarDAO t = new TrabajoARealizarDAO();
+            ProblemaDAO p = new ProblemaDAO();
+            ArrayList<TrabajoARealizar> taR = t.getAllTrabajosARealizar();
+            ArrayList<Problema> probl = p.getAllProblemas();
+            if (action.equals("create")) {
+                request.setAttribute("trabajos", taR);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaC.jsp");
+                rd.forward(request, response);
+            }
+            if (action.equals("update")) {
+                request.setAttribute("problemas", probl);
+                request.setAttribute("trabajos", taR);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaU.jsp");
+                rd.forward(request, response);
+            }
+            if (action.equals("delete")) {
+                request.setAttribute("problemas", probl);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaD.jsp");
+                rd.forward(request, response);
+            }
+
         } catch (URISyntaxException ex) {
             Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ArrayList<TrabajoARealizar> trabajos = new ArrayList();
-
-        ProblemaDAO h = null;
-        try {
-            h = new ProblemaDAO();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ArrayList<Problema> problemas = new ArrayList();
-        try {
-            trabajos = t.getAllTrabajosARealizar();
-            problemas = h.getAllProblemas();
         } catch (SQLException ex) {
-            Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (action.equals("create")) {
-            request.setAttribute("trabajos", trabajos);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaC.jsp");
-            rd.forward(request, response);
-        }
-        if (action.equals("update")) {
-            request.setAttribute("problemas", problemas);
-            request.setAttribute("trabajos", trabajos);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaU.jsp");
-            rd.forward(request, response);
+            Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

@@ -87,7 +87,7 @@
                             <div class="tm-icon-text-box col-md-4">
                                 <h3 align="center" class="tm-icon-text-box-title">Horario</h3>
                                 <p align="center">
-                                    <a class="btn btn-primary btn-lg" href="HorarioC_1.jsp" role="button">C</a>
+                                    <a class="btn btn-primary btn-lg" href="HorarioC?action=create" role="button">C</a>
                                     <a class="btn btn-primary btn-lg" href="HorarioC?action=update" role="button">U</a>
                                     <a class="btn btn-primary btn-lg" href="HorarioC?action=delete" role="button">D</a>
                                 </p>

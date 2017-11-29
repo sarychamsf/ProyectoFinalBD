@@ -65,7 +65,7 @@
                                     <a class="btn btn-primary btn-lg" href="ServicioC?action=delete" role="button">D</a>
                                 </p>
                             </div>
-                        
+
                             <div class="tm-icon-text-box col-md-4">
                                 <h3 align="center" class="tm-icon-text-box-title">Funciones</h3>
                                 <p align="center">
@@ -101,19 +101,44 @@
 
                         </div>
 
-                            <div class="tm-icon-text-box col-md-4">
-                                <h3 align="center" class="tm-icon-text-box-title">Categoria</h3>
-                                <p align="center">
-                                    <a class="btn btn-primary btn-lg" href="CategoriaC?action=create" role="button">C</a>
-                                </p>
-                            </div>
-                            <div class="tm-icon-text-box col-md-4">
-                                <h3 align="center" class="tm-icon-text-box-title">Reporte Mensajes</h3>
-                                <p align="center">
-                                    <a class="btn btn-primary btn-lg" href="MensajesReporte?action=create" role="button">R</a>
-                                </p>
-                            </div>
-                        
+                        <div class="tm-icon-text-box col-md-4">
+                            <h3 align="center" class="tm-icon-text-box-title">Categoria</h3>
+                            <p align="center">
+                                <a class="btn btn-primary btn-lg" href="CategoriaC?action=create" role="button">C</a>
+                            </p>
+                        </div>
+                        <div class="tm-icon-text-box col-md-4">
+                            <h3 align="center" class="tm-icon-text-box-title">Reporte Mensajes</h3>
+                            <p align="center">
+                                <a class="btn btn-primary btn-lg" href="MensajesReporte?action=create" role="button">R</a>
+                            </p>
+                        </div>
+                        <div class="tm-icon-text-box col-md-4">
+                            <h3 align="center" class="tm-icon-text-box-title">Terminado</h3>
+                            <p align="center">
+                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=create" role="button">C</a>
+                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=update" role="button">U</a>
+                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=delete" role="button">D</a>
+                            </p>
+                        </div>
+
+                        <div class="tm-icon-text-box col-md-4">
+                            <h3 align="center" class="tm-icon-text-box-title">Problema</h3>
+                            <p align="center">
+                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=create" role="button">C</a>
+                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=update" role="button">U</a>
+                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=delete" role="button">D</a>
+                            </p>
+                        </div>
+
+                        <div class="tm-icon-text-box col-md-4">
+                            <h3 align="center" class="tm-icon-text-box-title">Queja</h3>
+                            <p align="center">
+                                <a class="btn btn-primary btn-lg" href="QuejaC?action=create" role="button">C</a>
+                                <a class="btn btn-primary btn-lg" href="QuejaC?action=update" role="button">U</a>
+                                <a class="btn btn-primary btn-lg" href="QuejaC?action=delete" role="button">D</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
 

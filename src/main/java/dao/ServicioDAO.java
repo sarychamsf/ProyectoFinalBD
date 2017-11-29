@@ -63,4 +63,20 @@ public class ServicioDAO {
         }
         return s;
     }
+    
+        public ArrayList<Servicio> getReporteServicios() throws SQLException {
+        ArrayList<Servicio> servicios = new ArrayList<>();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("select idservicio, count(idservicio) as cuenta from funciones group by idservicio;");
+        while (rs.next()) {
+            Servicio s = new Servicio();
+
+            s.setIdServicio(rs.getInt("idServicio"));
+            s.setNombreS(rs.getString("nombreS"));
+            s.setEstado(rs.getInt("estado"));
+            servicios.add(s);
+        }
+        return servicios;
+    }
+    
 }

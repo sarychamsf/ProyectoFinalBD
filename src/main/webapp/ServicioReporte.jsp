@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page import="model.ReporteServicio"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
 
@@ -44,7 +46,30 @@
             </section>
         </div>
 
-
+        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
+            <table class="table table-inverse">
+                <thead>
+                    <tr>
+                        <th>Nombre Servicio</th>
+                        <th>Cantidad de Funciones</th>
+                    </tr>
+                </thead>
+                <%
+                  if (request.getAttribute("reporte") != null) {
+                            ArrayList<ServicioReporte> array = (ArrayList<ServicioReporte>) request.getAttribute("reporte");
+                            for (Reporte r : array) {
+                %>
+                <thead>
+                    <tr>
+                        <th><%=r.getNombre()%></th>
+                        <th><%=r.getCuenta()%></th>
+                    </tr>
+                </thead>
+                <%      }
+                    }
+                %>
+            </table>
+        </div> 
 
 
         <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">

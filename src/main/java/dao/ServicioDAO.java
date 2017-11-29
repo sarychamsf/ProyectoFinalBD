@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import model.ReporteServicio;
 import model.Servicio;
 import util.DbUtil;
 
@@ -63,20 +64,32 @@ public class ServicioDAO {
         }
         return s;
     }
-    
-        public ArrayList<Servicio> getReporteServicios() throws SQLException {
-        ArrayList<Servicio> servicios = new ArrayList<>();
-        Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("select idservicio, count(idservicio) as cuenta from funciones group by idservicio;");
-        while (rs.next()) {
-            Servicio s = new Servicio();
 
-            s.setIdServicio(rs.getInt("idServicio"));
-            s.setNombreS(rs.getString("nombreS"));
-            s.setEstado(rs.getInt("estado"));
-            servicios.add(s);
+    public ArrayList<ReporteServicio> getReporteServicios() throws SQLException, URISyntaxException {
+        
+        ArrayList<ReporteServicio> reportes = new ArrayList<>();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("select idservicio, count(idservicio) as cuenta from funciones group by idservicio having count(idservicio)>2");
+        while (rs.next()) {
+            ReporteServicio rep = new ReporteServicio(rs.getInt("idservicio"), rs.getInt("cuenta"));
+            reportes.add(rep);
         }
-        return servicios;
+        
+        ArrayList<Servicio> servicios = new ArrayList<>();
+        ServicioDAO aux = new ServicioDAO();
+        servicios = aux.getAllServicios();
+        
+        ArrayList<ReporteServicio> repnombres = new ArrayList<>();
+        for(ReporteServicio rep: reportes){
+            for(Servicio s:servicios){
+                if(s.getIdServicio()==rep.getIdServicio()){
+                    repnombres.add(new ReporteServicio(rep.getIdServicio(), rep.getCuenta(), s.getNombreS()));
+                }
+            }
+        }
+        
+        return repnombres;
+
     }
-    
+
 }

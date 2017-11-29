@@ -9,6 +9,10 @@
         <servlet-class>Controlador.CategoriaC</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ServicioReporte</servlet-name>
+        <servlet-class>Controlador.ServicioReporte</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>MensajesReporte</servlet-name>
         <servlet-class>Controlador.MensajesReporte</servlet-class>
     </servlet>
@@ -175,7 +179,7 @@
         <servlet-name>HorarioM</servlet-name>
         <url-pattern>/HorarioM</url-pattern>
     </servlet-mapping>
-         <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProblemaC</servlet-name>
         <url-pattern>/ProblemaC</url-pattern>
     </servlet-mapping>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>TerminadoM</servlet-name>
         <url-pattern>/TerminadoM</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServicioReporte</servlet-name>
+        <url-pattern>/ServicioReporte</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -58,20 +58,7 @@
                             <%      }
                                 }
                             %>
-                        </select>  
-                        <br>
-                        <label align="center" for="idU">Trabajador a Cargo</label>
-                        <select name="idU" class="form-control form-control-lg">
-                            <%
-                                if (request.getAttribute("usuarios") != null) {
-                                    ArrayList<Trabajador> array = (ArrayList<Trabajador>) request.getAttribute("usuarios");
-                                    for (Trabajador t : array) {
-                            %>
-                            <option value="<%=t.getIdUsuario()%>"><%=t.getNombre()%></option>
-                            <%      }
-                                }
-                            %>
-                        </select>  
+                        </select>                         
                         <br>
                         <label align="center" for="horaI1">Hora Inicial</label>
                         <select name="horaI1" class="c-select">
@@ -321,12 +308,43 @@
                         <%}%>
                         <br>
                         <br>
+                        <label class="btn btn-primary active">
+                            <input type="checkbox" checked autocomplete="on" name="confirmado"> Confirmado
+                        </label>
                         <button type="submit" class="btn tm-bordered-btn pull-xs-center">Agregar</button>
                         <a class="btn tm-bordered-btn pull-xs-center" href="menu.jsp" role="button">Volver</a>
                     </form>  
 
                 </div>                         
 
+
+                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
+                    <table class="table table-inverse">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Urgencia</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <%
+                          if (request.getSession().getAttribute("trabajosE") != null) {
+                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
+                                    for (Trabajillo r : array) {
+                        %>
+                        <thead>
+                            <tr>
+                                <th><%=r.getServicio()%></th>
+                                <th><%=r.getUrgencia()%></th>
+                                <th><%=r.getDetalles()%></th>
+                            </tr>
+                        </thead>
+                        <%      }
+                            }
+                        %>
+                    </table>
+
+                </div>          
 
             </section>
 

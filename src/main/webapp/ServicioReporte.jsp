@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@page import="model.ServicioReporte"%>
+<%@page import="model.ReporteServicio"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
                 </thead>
                 <%
                   if (request.getAttribute("reporte") != null) {
-                            ArrayList<ServicioReporte> array = (ArrayList<ServicioReporte>) request.getAttribute("reporte");
+                            ArrayList<ReporteServicio> array = (ArrayList<SReporteServicio>) request.getAttribute("reporte");
                             for (Reporte r : array) {
                 %>
                 <thead>

@@ -68,6 +68,7 @@ public class ProblemaC extends HttpServlet {
         int idT = Integer.parseInt(request.getParameter("idT"));
         String nombre = request.getParameter("nombre");
         String descripcion = request.getParameter("descripcion");
+        System.out.println("----"+nombre+"----"+descripcion);
         try {
             ProblemaDAO p = new ProblemaDAO();
             Problema problemaCrear = new Problema();
@@ -79,23 +80,7 @@ public class ProblemaC extends HttpServlet {
             Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        ArrayList<TrabajoARealizar> trabajos = new ArrayList();
-
-        TrabajoARealizarDAO t = null;
-        try {
-            t = new TrabajoARealizarDAO();
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            trabajos = t.getAllTrabajosARealizar();
-        } catch (SQLException ex) {
-            Logger.getLogger(ProblemaC.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        request.setAttribute("trabajos", trabajos);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProblemaC.jsp");
-        rd.forward(request, response);
+        response.sendRedirect("menu.jsp");
     }
 
 }

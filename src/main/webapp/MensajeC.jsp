@@ -93,7 +93,7 @@
                         </select>  
                         <br>
                         <label align="center" for="valoracion">Prioridad</label>
-                        <select name="valoracion" class="form-control form-control-lg">
+                        <select name="prioridad" class="form-control form-control-lg">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -105,6 +105,7 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
+                        <br>
                         <label align="center" for="asunto">Asunto</label>
                         <input type="text" name="asunto" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
                         <br>

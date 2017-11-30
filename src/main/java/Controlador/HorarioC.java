@@ -104,6 +104,7 @@ public class HorarioC extends HttpServlet {
                         Horario horario = new Horario(0, idT, idU, horaI, horaF, fecha, 0);
                         ArrayList<Horario> trabajosE = (ArrayList<Horario>) request.getSession().getAttribute("trabajosE");
                         for(Horario ho:trabajosE){
+                            ho.setIdTaR(idT);
                             h.addHorario(ho);
                         }
                         h.addHorario(horario);

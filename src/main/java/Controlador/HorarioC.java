@@ -71,7 +71,7 @@ public class HorarioC extends HttpServlet {
         }
         if (action.equals("create")) {
             request.setAttribute("usuarios", usuarios);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC_1.jsp");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioE.jsp");
             rd.forward(request, response);
         }
         if (action.equals("update")) {

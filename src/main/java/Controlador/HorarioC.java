@@ -86,16 +86,20 @@ public class HorarioC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
-        ArrayList<TrabajoARealizar> trabajos = new ArrayList();
-        TrabajoARealizarDAO t = null;
         try {
-            trabajos = t.getAllTrabajosARealizar();
-        } catch (SQLException ex) {
-            Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+            request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
+            ArrayList<TrabajoARealizar> trabajos = new ArrayList();
+            TrabajoARealizarDAO t = new TrabajoARealizarDAO();
+            try {
+                trabajos = t.getAllTrabajosARealizar();
+            } catch (SQLException ex) {
+                Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            request.setAttribute("trabajos", trabajos);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
+            rd.forward(request, response);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(HorarioC.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("trabajos", trabajos);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
-        rd.forward(request, response);
     }
 }

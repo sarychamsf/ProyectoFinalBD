@@ -87,7 +87,7 @@ public class HorarioC extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.sendRedirect("/HorarioC.jsp");
         if (request.getSession().getAttribute("trabajador") != null) {
             if (request.getAttribute("confirmado") != null) {
             } else {

@@ -176,6 +176,7 @@ public class HorarioC extends HttpServlet {
 //                }
 //            }
         } else {
+            response.sendRedirect("/menu.jsp");
             request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
             ArrayList<TrabajoARealizar> trabajos = new ArrayList();
             TrabajoARealizarDAO t = null;

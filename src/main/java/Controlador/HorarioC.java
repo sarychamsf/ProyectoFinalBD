@@ -87,6 +87,7 @@ public class HorarioC extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+
             if (request.getSession().getAttribute("trabajador") != null) {
                 response.sendRedirect("menu.jsp");
                 if (request.getAttribute("confirmado") != null) {
@@ -159,8 +160,8 @@ public class HorarioC extends HttpServlet {
                 }
 
             } else {
-
-                request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
+                
+                request.getSession().setAttribute("trabajador", request.getParameter("idU"));
                 ArrayList<TrabajoARealizar> trabajos = new ArrayList();
                 TrabajoARealizarDAO t = new TrabajoARealizarDAO();
                 try {

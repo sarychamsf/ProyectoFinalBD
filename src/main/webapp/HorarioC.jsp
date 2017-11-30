@@ -1,6 +1,6 @@
-<%@page import="model.Trabajador"%>
 <%@page import="model.TrabajoARealizar"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="util.Trabajillo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!DOCTYPE html>
@@ -322,9 +322,10 @@
                     <table class="table table-inverse">
                         <thead>
                             <tr>
-                                <th>Servicio</th>
-                                <th>Urgencia</th>
-                                <th>Detalles</th>
+                                <th>Id Trabajo</th>
+                                <th>Hora Inicial</th>
+                                <th>Hora Final</th>
+                                <th>Fecha</th>
                             </tr>
                         </thead>
                         <%
@@ -336,6 +337,7 @@
                             <tr>
                                 <th><%=r.getServicio()%></th>
                                 <th><%=r.getUrgencia()%></th>
+                                <th><%=r.getDetalles()%></th>
                                 <th><%=r.getDetalles()%></th>
                             </tr>
                         </thead>

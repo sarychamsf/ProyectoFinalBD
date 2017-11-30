@@ -88,6 +88,7 @@ public class HorarioC extends HttpServlet {
             throws ServletException, IOException {
         try {
             if (request.getSession().getAttribute("trabajador") != null) {
+                response.sendRedirect("menu.jsp");
                 if (request.getAttribute("confirmado") != null) {
                     if (!(request.getParameter("horaI1")).equals("-") && !(request.getParameter("horaI2")).equals("-")
                             && !(request.getParameter("horaF1")).equals("-") && !(request.getParameter("horaF2")).equals("-")

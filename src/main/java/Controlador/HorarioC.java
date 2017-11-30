@@ -87,19 +87,91 @@ public class HorarioC extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
-            ArrayList<TrabajoARealizar> trabajos = new ArrayList();
-            TrabajoARealizarDAO t = new TrabajoARealizarDAO();
-            try {
-                trabajos = t.getAllTrabajosARealizar();
-            } catch (SQLException ex) {
-                Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+            if (request.getSession().getAttribute("trabajador") != null) {
+                if (request.getAttribute("confirmado") != null) {
+                    if (!(request.getParameter("horaI1")).equals("-") && !(request.getParameter("horaI2")).equals("-")
+                            && !(request.getParameter("horaF1")).equals("-") && !(request.getParameter("horaF2")).equals("-")
+                            && !(request.getParameter("fechaD")).equals("-") && !(request.getParameter("fechaM")).equals("-")
+                            && !(request.getParameter("fechaA")).equals("-")) {
+                        int idU = Integer.parseInt(request.getParameter("idU"));
+                        int idT = (int) request.getSession().getAttribute("trabajador");
+                        String horaInicial = request.getParameter("horaI1") + "" + request.getParameter("horaI2");
+                        int horaI = Integer.parseInt(horaInicial);
+                        String horaFinal = request.getParameter("horaF1") + "" + request.getParameter("horaF2");
+                        int horaF = Integer.parseInt(horaFinal);
+                        String fecha = request.getParameter("fechaD") + "/" + request.getParameter("fechaM") + "/" + request.getParameter("fechaA");
+                        HorarioDAO h = new HorarioDAO();
+                        Horario horario = new Horario(0, idT, idU, horaI, horaF, fecha, 0);
+                        ArrayList<Horario> trabajosE = (ArrayList<Horario>) request.getSession().getAttribute("trabajosE");
+                        for(Horario ho:trabajosE){
+                            h.addHorario(ho);
+                        }
+                        h.addHorario(horario);
+                        request.getSession().setAttribute("trabajador", null);
+                        request.getSession().setAttribute("trabajosE", null);
+                        response.sendRedirect("menu.jsp");
+                    } else {
+                        TrabajoARealizarDAO t= new TrabajoARealizarDAO();
+                        ArrayList<TrabajoARealizar> trabajos=t.getAllTrabajosARealizar();
+                        request.setAttribute("respuesta", "aqui hay algo");
+                        request.setAttribute("trabajos", trabajos);
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
+                        rd.forward(request, response);
+                    }
+                } else {
+                    if (!(request.getParameter("horaI1")).equals("-") && !(request.getParameter("horaI2")).equals("-")
+                            && !(request.getParameter("horaF1")).equals("-") && !(request.getParameter("horaF2")).equals("-")
+                            && !(request.getParameter("fechaD")).equals("-") && !(request.getParameter("fechaM")).equals("-")
+                            && !(request.getParameter("fechaA")).equals("-")) {
+                        int idU = Integer.parseInt(request.getParameter("idU"));
+                        String horaInicial = request.getParameter("horaI1") + "" + request.getParameter("horaI2");
+                        int horaI = Integer.parseInt(horaInicial);
+                        String horaFinal = request.getParameter("horaF1") + "" + request.getParameter("horaF2");
+                        int horaF = Integer.parseInt(horaFinal);
+                        String fecha = request.getParameter("fechaD") + "/" + request.getParameter("fechaM") + "/" + request.getParameter("fechaA");
+                        HorarioDAO h = new HorarioDAO();
+                        Horario horario = new Horario(0, 0, idU, horaI, horaF, fecha, 0);
+                        if (request.getSession().getAttribute("trabajosE") == null) {
+                            ArrayList<Horario> trabajosE = new ArrayList<>();
+                            trabajosE.add(horario);
+                            request.getSession().setAttribute("trabajosE", trabajosE);
+                        } else {
+                            ArrayList<Horario> trabajosE = (ArrayList<Horario>) request.getSession().getAttribute("trabajosE");
+                            trabajosE.add(horario);
+                            request.getSession().setAttribute("trabajosE", trabajosE);
+                        }
+                    } else {
+                        TrabajoARealizarDAO t= new TrabajoARealizarDAO();
+                        ArrayList<TrabajoARealizar> trabajos=t.getAllTrabajosARealizar();
+                        request.setAttribute("respuesta", "aqui hay algo");
+                        request.setAttribute("trabajos", trabajos);
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
+                        rd.forward(request, response);
+                    }
+
+                }
+
+            } else {
+
+                request.getSession().setAttribute("trabajador", request.getAttribute("idU"));
+                ArrayList<TrabajoARealizar> trabajos = new ArrayList();
+                TrabajoARealizarDAO t = new TrabajoARealizarDAO();
+                try {
+                    trabajos = t.getAllTrabajosARealizar();
+                } catch (SQLException ex) {
+                    Logger.getLogger(HorarioM.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                request.setAttribute("trabajos", trabajos);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
+                rd.forward(request, response);
+
             }
-            request.setAttribute("trabajos", trabajos);
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
-            rd.forward(request, response);
+
         } catch (URISyntaxException ex) {
+            Logger.getLogger(HorarioC.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(HorarioC.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

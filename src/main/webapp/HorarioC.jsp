@@ -330,15 +330,15 @@
                         </thead>
                         <%
                           if (request.getSession().getAttribute("trabajosE") != null) {
-                                    ArrayList<Trabajillo> array = (ArrayList<Trabajillo>) request.getSession().getAttribute("trabajosE");
-                                    for (Trabajillo r : array) {
+                                    ArrayList<Horario> array = (ArrayList<Horario>) request.getSession().getAttribute("trabajosE");
+                                    for (Horario r : array) {
                         %>
                         <thead>
                             <tr>
-                                <th><%=r.getServicio()%></th>
-                                <th><%=r.getUrgencia()%></th>
-                                <th><%=r.getDetalles()%></th>
-                                <th><%=r.getDetalles()%></th>
+                                <th><%=r.getIdTaR()%></th>
+                                <th><%=r.getHoraInicio()%></th>
+                                <th><%=r.getHoraFinal()%></th>
+                                <th><%=r.getFecha()%></th>
                             </tr>
                         </thead>
                         <%      }

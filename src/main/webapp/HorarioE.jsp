@@ -46,7 +46,7 @@
 
                 </div>
                 <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 tm-form-group-left">
-                    <form align="center" action="HorarioC" method="POST" class="tm-contact-form"> 
+                    <form align="center" action="MensajesReporte" method="GET" class="tm-contact-form"> 
                         <label align="center" for="idU">Trabajador</label>
                         <select name="idU" class="form-control form-control-lg">
                             <%

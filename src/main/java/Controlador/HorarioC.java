@@ -141,6 +141,11 @@ public class HorarioC extends HttpServlet {
                             trabajosE.add(horario);
                             request.getSession().setAttribute("trabajosE", trabajosE);
                         }
+                        TrabajoARealizarDAO t= new TrabajoARealizarDAO();
+                        ArrayList<TrabajoARealizar> trabajos=t.getAllTrabajosARealizar();
+                        request.setAttribute("trabajos", trabajos);
+                        RequestDispatcher rd = getServletContext().getRequestDispatcher("/HorarioC.jsp");
+                        rd.forward(request, response);
                     } else {
                         TrabajoARealizarDAO t= new TrabajoARealizarDAO();
                         ArrayList<TrabajoARealizar> trabajos=t.getAllTrabajosARealizar();

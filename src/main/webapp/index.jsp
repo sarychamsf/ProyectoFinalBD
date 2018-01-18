@@ -47,6 +47,7 @@
                                 <br>
                                 <label align="center" for="login">Password</label>
                                 <input type="pass" name="pass" maxlength="30" class="form-control" placeholder="máx. 30"  required/>
+                                <br>
                                 <button type="submit" class="btn tm-bordered-btn pull-xs-center">Empezar</button>
                             </form>
                         </div>            

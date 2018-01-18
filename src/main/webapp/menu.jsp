@@ -30,8 +30,8 @@
                 <h2 class="tm-section-title">Menú</h2>   
                 <br><br>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-
+            
+            <div align="center">
 
                 <div class="tm-icon-text-box col-md-4">
                     <h3 align="center" class="tm-icon-text-box-title">Usuario</h3>

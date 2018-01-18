@@ -31,111 +31,109 @@
                 <br><br>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <div class="tm-icon-text-boxes-container">
-                    <div class="row">
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Usuario</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="Usuario?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="Usuario?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="Usuario?action=delete" role="button">D</a>
-                                <a class="btn btn-primary btn-lg" href="Usuario?action=consulta1" role="button">C1</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Empresa</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="EmpresaC.jsp" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="EmpresaC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="EmpresaC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4" >
-                            <h3 align="center" class="tm-icon-text-box-title">Mensaje</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="MensajeC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="MensajeC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="MensajeC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4" >
-                            <h3 align="center" class="tm-icon-text-box-title">Servicio</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="ServicioC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="ServicioC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="ServicioC?action=delete" role="button">D</a>
-                                <a class="btn btn-primary btn-lg" href="ServicioReporte" role="button">Reporte</a>
-                            </p>
-                        </div>
 
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Funciones</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="FuncionesC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="FuncionesC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="FuncionesC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Trabajo a Realizar</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Horario</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="HorarioC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="HorarioC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="HorarioC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Terminado</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="TerminadoC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-
-
-
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Categoria</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="CategoriaC?action=create" role="button">C</a>
-                            </p>
-                        </div>
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Reporte Mensajes</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="MensajesReporte?action=create" role="button">R</a>
-                            </p>
-                        </div>
-
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Problema</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="ProblemaC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-
-                        <div class="tm-icon-text-box col-md-4">
-                            <h3 align="center" class="tm-icon-text-box-title">Queja</h3>
-                            <p align="center">
-                                <a class="btn btn-primary btn-lg" href="QuejaC?action=create" role="button">C</a>
-                                <a class="btn btn-primary btn-lg" href="QuejaC?action=update" role="button">U</a>
-                                <a class="btn btn-primary btn-lg" href="QuejaC?action=delete" role="button">D</a>
-                            </p>
-                        </div>
-                        
+                <div class="row">
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Usuario</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="Usuario?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="Usuario?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="Usuario?action=delete" role="button">D</a>
+                            <a class="btn btn-primary btn-lg" href="Usuario?action=consulta1" role="button">C1</a>
+                        </p>
                     </div>
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Empresa</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="EmpresaC.jsp" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="EmpresaC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="EmpresaC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4" >
+                        <h3 align="center" class="tm-icon-text-box-title">Mensaje</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="MensajeC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="MensajeC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="MensajeC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4" >
+                        <h3 align="center" class="tm-icon-text-box-title">Servicio</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="ServicioC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="ServicioC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="ServicioC?action=delete" role="button">D</a>
+                            <a class="btn btn-primary btn-lg" href="ServicioReporte" role="button">Reporte</a>
+                        </p>
+                    </div>
+
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Funciones</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="FuncionesC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="FuncionesC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="FuncionesC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Trabajo a Realizar</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="TrabajoARealizarC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Horario</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="HorarioC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="HorarioC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="HorarioC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Terminado</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="TerminadoC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="TerminadoC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="TerminadoC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Categoria</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="CategoriaC?action=create" role="button">C</a>
+                        </p>
+                    </div>
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Reporte Mensajes</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="MensajesReporte?action=create" role="button">R</a>
+                        </p>
+                    </div>
+
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Problema</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="ProblemaC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="ProblemaC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="ProblemaC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+
+                    <div class="tm-icon-text-box col-md-4">
+                        <h3 align="center" class="tm-icon-text-box-title">Queja</h3>
+                        <p align="center">
+                            <a class="btn btn-primary btn-lg" href="QuejaC?action=create" role="button">C</a>
+                            <a class="btn btn-primary btn-lg" href="QuejaC?action=update" role="button">U</a>
+                            <a class="btn btn-primary btn-lg" href="QuejaC?action=delete" role="button">D</a>
+                        </p>
+                    </div>
+
                 </div>
+
             </div>
 
 

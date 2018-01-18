@@ -18,7 +18,7 @@
 
     <body>
 
-        <div class="row tm-section tm-blue-bg-row">
+        <div class="divcentro">
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
                 <h2 class="tm-section-title">Menú</h2>   

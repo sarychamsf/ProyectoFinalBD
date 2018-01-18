@@ -25,7 +25,7 @@
                 <br><br>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" align="center">
+            <div class="divcentro">
 
                 <div class="tm-icon-text-box col-md-4">
                     <h3 align="center" class="tm-icon-text-box-title">Usuario</h3>

@@ -17,13 +17,7 @@
     </head>
 
     <body>
-        <!--git status
-            git pull
-            git commit -a -m "hola"
-            git checkout master
-            git checkout -b ramaOtra
-            git push
-            git push --set-upstream origin ramaOtra-->
+
         <div class="row tm-section tm-blue-bg-row">
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-xs-center">
@@ -31,7 +25,7 @@
                 <br><br>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" align="center">
 
                 <div class="tm-icon-text-box col-md-4">
                     <h3 align="center" class="tm-icon-text-box-title">Usuario</h3>
